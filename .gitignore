@@ -27,4 +27,4 @@
 /config/master.key
 
 # Ignore GCS key file
-# /config/gcs.json
+/config/gcs.json
