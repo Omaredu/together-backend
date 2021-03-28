@@ -18,6 +18,7 @@ class User < ApplicationRecord
     user = User.where(id: id).select(User.attribute_names - ['password_digest']).first
     user_attr = user.attributes
     user_attr[:avatar] = user.avatar.attached? ? Rails.application.routes.url_helpers.url_for(user.avatar) : ""
+    user_attr[:doctor] = user.doctor ? true : false
 
     user_attr
   end
