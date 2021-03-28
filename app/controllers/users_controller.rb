@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate!, only: :show
 
   def show
-    @user = User.find_filtered(params[:user_id])
+    @user = User.find_filtered(params[:user_id] || Current.user.id)
 
     if !@user.nil?
       render json: { user: @user }, status: :ok
